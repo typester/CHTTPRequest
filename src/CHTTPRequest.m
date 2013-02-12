@@ -163,6 +163,10 @@ static size_t curl_read_handler(void* ptr, size_t size, size_t nmemb, void* stre
             r = curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
             assert(0 == r);
         }
+        if (self.caInfo) {
+            r = curl_easy_setopt(curl, CURLOPT_CAINFO, [self.caInfo UTF8String]);
+            assert(0 == r);
+        }
 
         if ([self.postValue count]) {
             NSString* postFields = [self.postValue componentsJoinedByString:@"&"];

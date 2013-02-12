@@ -8,6 +8,7 @@
 @property (copy) NSString* clientCertificate;
 @property (copy) NSString* clientCertificateKey;
 @property (assign) BOOL validatesSecureCertificate;
+@property (copy) NSString* caInfo;
 
 @property (retain) NSMutableArray* postValue;
 
