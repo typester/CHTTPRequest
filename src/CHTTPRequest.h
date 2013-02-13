@@ -11,6 +11,7 @@
 @property (copy) NSString* caInfo;
 
 @property (retain) NSMutableArray* postValue;
+@property (retain) NSData* postBody;
 
 @property (copy) NSString* error;
 @property (retain) NSMutableData* rawResponseData;

@@ -176,6 +176,13 @@ static size_t curl_read_handler(void* ptr, size_t size, size_t nmemb, void* stre
             r = curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, [postFields lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             assert(0 == r);
         }
+        else if (self.postBody) {
+            r = curl_easy_setopt(curl, CURLOPT_POSTFIELDS, [self.postBody bytes]);
+            assert(0 == r);
+
+            r = curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, [self.postBody length]);
+            assert(0 == r);
+        }
 
         r = curl_easy_perform(curl);
         if (r) {
